@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zoo Park - Registro</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+      font-family: 'Lora', serif;
+      font-weight: 400;
+    }
+    
+  .formulario {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .titulo {
+    margin-bottom: 20px;
+  }
+  .modal {
+    z-index: 1050;
+  }
+
+  .modal-backdrop {
+    z-index: 1040; 
+  }
+</style>
+</head>
+
+<body>
+
+    <header id="header">
+
+     <!-- Navegation Menu -->
+     <nav class="menu">
+         <div class="logobox">
+             <h1 class="logo"><a href="#">
+                <i class="fas fa-tree"></i>
+                ZooPark
+             </a></h1>
+
+             <span class="btn-menu"><i class="fas fa-bars"></i></span>
+         </div>
+
+         <div class="list-container">
+             <ul class="lists">
+                 <li><a href="index.html">Inicio</a></li>
+                 <li><a href="instalaciones.html">Instalaciones</a></li>
+                 <li><a href="servicios.html" >Servicios</a></li>
+                 <li><a href="form.html" class="active">Registrar visita</a></li>
+                 
+             </ul>
+         </div>
+     </nav>
+
+     <!-- Img Header -->
+     <figure class="img-header-services">
+         <div class="welcome">
+            <h4>Registra tu visita</h4>
+            <h2><a href="index.html">
+               <i class="fas fa-tree"></i>
+               ZooPark de Colombia
+            </a></h2>
+         </div>
+     </figure>
+
+    </header>
+
+<main>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="formulario">
+          <h1 class="titulo text-center">Registro de Visita al Zoológico</h1>
+          <form id="registroForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="correo">Correo electrónico:</label>
+                <input type="email" class="form-control" id="correo" name="correo" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="edad">Edad:</label>
+                <input type="number" class="form-control" id="edad" name="edad" min="1" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="fecha">Fecha de Visita:</label>
+                <input type="date" class="form-control" id="fecha" name="fecha" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" class="form-control" id="telefono" name="telefono"  placeholder="1234567890" required>
+            </div>
+            <div class="form-group">
+              <label for="paquete">Paquete de Visita:</label>
+              <select class="form-control" id="paquete" name="paquete" required>
+                <option value="">Seleccione un paquete</option>
+                <option value="VisitaGuiada">Visita Guiata al todo el Zoo</option>
+                <option value="ShowAnimales">Show de Animales</option>
+                <option value="Zona de Aves">Zona de Aves</option>
+                <option value="Jardín Botánico">Jardín Botánico</option>
+                <option value="Acuario">Acuario</option>
+                <option value="Todo">Todo lo Anterior</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cantidad">Cantidad de Visitantes:</label>
+              <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" required>
+            </div>
+            <div class="form-group">
+              <label for="comentarios">Comentarios adicionales:</label>
+              <textarea class="form-control" id="comentarios" name="comentarios" rows="3"></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Registrar Visita</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de Registro Exitoso -->
+  <div class="modal fade" id="registroExitosoModal" tabindex="-1" role="dialog" aria-labelledby="registroExitosoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registroExitosoModalLabel">Registro Exitoso</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¡Registro exitoso! ¡Aquí te esperamos!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+   
+
+   
+    <!-- Footer -->
+    <footer>
+       <p>&copy; Todos los derechos reservados - 2024 | ZooPark de Colombia</p>
+    </footer>
+
+</main>
+<!-- Scripts -->
+<script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
+<script src="js/app.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.getElementById('registroForm').addEventListener('submit', function(event) {
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const edad = document.getElementById('edad').value;
+    const fecha = document.getElementById('fecha').value;
+    const telefono = document.getElementById('telefono').value;
+    const paquete = document.getElementById('paquete').value;
+
+    if (nombre.trim() === '' || correo.trim() === '' || edad.trim() === '' || fecha.trim() === '' || telefono.trim() === '' || paquete === '') {
+      alert('Por favor, complete todos los campos.');
+      event.preventDefault();
+    } else if (edad < 1) {
+      alert('La edad debe ser un número positivo.');
+      event.preventDefault();
+    } else {
+      $('#registroExitosoModal').modal('show');
+      event.preventDefault();
+    }
+  });
+
+  // Limpiar campos del formulario cuando se cierra el modal
+  $('#registroExitosoModal').on('hidden.bs.modal', function (e) {
+    document.getElementById('registroForm').reset();
+  });
+</script>
+<!--Php-->
+<?php
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "registrar_visita";
+  
+  // Crear conexión
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+  // Verificar conexión
+  if ($conn->connect_error) {
+      die("Conexión fallida: " . $conn->connect_error);
+  }
+
+  // Obtener los datos del formulario
+  $nombre = $_POST['nombre'];
+  $correo = $_POST['correo'];
+  $edad = $_POST['edad'];
+  $fecha = $_POST['fecha'];
+  $telefono = $_POST['telefono'];
+  $paquete = $_POST['paquete'];
+  $cantidad = $_POST['cantidad'];
+  $comentarios = $_POST['comentarios'];
+
+  // Preparar la consulta SQL para insertar los datos en la tabla
+  $sql = "INSERT INTO visitas_zoo (nombre, correo, edad, fecha, telefono, paquete, cantidad, comentarios)
+          VALUES ('$nombre', '$correo', $edad, '$fecha', '$telefono', '$paquete', $cantidad, '$comentarios')";
+
+  // Ejecutar la consulta
+  if ($conn->query($sql) === TRUE) {
+      exit();
+  } else {
+      // Mostrar un mensaje de error si la inserción falla
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
+  // Cerrar la conexión
+  $conn->close();
+} else {
+  // Si no se han enviado datos del formulario, redirigir a la página del formulario
+  header("Location: form.php");
+  exit();
+}
+
+?>
+</body>
+</html>
